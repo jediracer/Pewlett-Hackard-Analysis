@@ -61,21 +61,21 @@
  - I do not believe there are enough employees eligible for the mentorship program, with only 1,549 eligible.
     - I would adjust the mentorship eligibility birth year range to include 1964 to greatly increase the number of potential mentors to 19,905.
     ```
-    SELECT DISTINCT ON (emp_no)
-    	e.emp_no,
-    	e.first_name,
-    	e.last_name,
-    	e.birth_date,
-    	de.from_date,
-    	de.to_date,
-    	t.title
-    INTO mentorship_eligibilty_UPD
-    FROM employees AS e
-    INNER JOIN dept_emp AS de
-    	USING(emp_no)
-    INNER JOIN titles AS t
-    	USING(emp_no)
-    WHERE de.to_date = ('9999-01-01')
-    	AND e.birth_date BETWEEN '1964-01-01' AND '1965-12-31'
-ORDER BY emp_no;
+	 SELECT DISTINCT ON (emp_no)
+		e.emp_no,
+		e.first_name,
+		e.last_name,
+		e.birth_date,
+		de.from_date,
+		de.to_date,
+		t.title
+	 INTO mentorship_eligibilty_UPD
+	 FROM employees AS e
+	 INNER JOIN dept_emp AS de
+		USING(emp_no)
+	 INNER JOIN titles AS t
+		USING(emp_no)
+	 WHERE de.to_date = ('9999-01-01')
+		AND e.birth_date BETWEEN '1964-01-01' AND '1965-12-31'
+	ORDER BY emp_no;
     ```
